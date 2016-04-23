@@ -1,0 +1,2 @@
+class DiamondsController < ApplicationController
+end

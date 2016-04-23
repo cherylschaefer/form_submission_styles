@@ -1,0 +1,2 @@
+class TribblesController < ApplicationController
+end

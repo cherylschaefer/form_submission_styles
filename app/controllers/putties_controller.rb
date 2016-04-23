@@ -1,0 +1,2 @@
+class PuttiesController < ApplicationController
+end
