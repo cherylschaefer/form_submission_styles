@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   get 'welcome/index'
 
   resources :tribbles
@@ -7,5 +9,4 @@ Rails.application.routes.draw do
   resources :putties
 
   root 'welcome#index'
-
 end
