@@ -1,2 +1,3 @@
-class Puffy < ActiveRecord::Base
+class Putty < ActiveRecord::Base
+  belongs_to :user
 end

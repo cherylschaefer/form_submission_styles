@@ -46,6 +46,7 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
+  config.include Warden::Test::Helpers
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
@@ -98,14 +99,20 @@ RSpec.configure do |config|
 =end
 
   require 'database_cleaner'
-	config.before(:suite) do
+
+  config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
-		DatabaseCleaner.clean_with(:truncation)
-	end
+    DatabaseCleaner.clean_with(:truncation)
+    Warden.test_mode!
+  end
   DatabaseCleaner.strategy = :truncation
   config.around(:each) do |example|
     DatabaseCleaner.cleaning do
       example.run
     end
+  end
+  config.after(:each) do
+    Warden.test_reset!
+    Capybara.reset_sessions!
   end
 end
