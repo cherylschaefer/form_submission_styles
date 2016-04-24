@@ -8,9 +8,15 @@
   <br/>
 
   <h2>Diamond</h2>
+  <% if @diamond.present? %>
+    <p><%= link_to "Delete #{@diamond.name}", diamond_path(@diamond), method: :delete %></p>
+  <% else %>
+    <p><%= link_to "Create new diamond", new_diamond_path %></p>
+  <% end %>
   <br/>
 
   <h2>Putty</h2>
+  <p><%= link_to "Edit #{@putty.name}", edit_putty_path(@putty) %></p>
   <br/>
 
   <h2>Tribbles</h2>
