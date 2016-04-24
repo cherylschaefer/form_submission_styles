@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20160423223859) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "diamonds", ["user_id"], name: "index_diamonds_on_user_id", unique: true, using: :btree
+
   create_table "putties", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.string   "name",       limit: 255
@@ -29,6 +31,8 @@ ActiveRecord::Schema.define(version: 20160423223859) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "putties", ["user_id"], name: "index_putties_on_user_id", unique: true, using: :btree
+
   create_table "snowflakes", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.string   "name",       limit: 255
@@ -36,6 +40,8 @@ ActiveRecord::Schema.define(version: 20160423223859) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "snowflakes", ["name"], name: "index_snowflakes_on_name", unique: true, using: :btree
 
   create_table "tribbles", force: :cascade do |t|
     t.integer  "user_id",    limit: 4

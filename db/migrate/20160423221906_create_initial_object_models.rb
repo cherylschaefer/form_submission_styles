@@ -28,5 +28,8 @@ class CreateInitialObjectModels < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :snowflakes, :name, unique: true
+    add_index :diamonds, :user_id, unique: true
+    add_index :putties, :user_id, unique: true
   end
 end
