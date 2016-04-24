@@ -35,7 +35,7 @@ feature 'Snowflakes' do
 
       expect(Snowflake.count).to eq 1
       expect(Snowflake.last.name).to eq flake.name
-      expect(current_path).to eq root_path
+      expect(current_path).to eq snowflakes_path
     end
     it 'can be deleted' do
       flake = FactoryGirl.create(:snowflake, user: user)
