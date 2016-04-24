@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  resources :tribbles
-  resources :snowflakes
+  resources :tribbles, except: [:index, :show]
+  resources :snowflakes, only: [:new, :create, :destroy]
   resources :diamonds
   resources :putties
 

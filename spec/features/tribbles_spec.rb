@@ -9,8 +9,8 @@ feature 'Tribbles' do
   end
   context 'when logged in as a user' do
     let(:user) { FactoryGirl.create(:user) }
-    before { login_as user }
-    after { logout }
+    before(:each) { login_as user }
+    after(:each) { logout }
 
     it 'can be created' do
       visit root_path
@@ -44,6 +44,7 @@ feature 'Tribbles' do
 
       click_on "Delete #{tribble.name}"
 
+      #puts page.text
       expect(current_path).to eq root_path
       expect(Tribble.count).to eq 0
     end

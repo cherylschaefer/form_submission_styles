@@ -23,4 +23,11 @@
   <br/>
 
   <h2>Snowflakes</h2>
+  <p><%= link_to "Create new snowflake", new_snowflake_path %></p>
+  <% if @snowflakes.present? %>
+    <% @snowflakes.each do |snowflake| %>
+      <p><%= link_to "Delete #{snowflake.name}", snowflake_path(snowflake), method: :delete %></p>
+    <% end %>
+  <% end %>
+  <br/>
 <% end %>
