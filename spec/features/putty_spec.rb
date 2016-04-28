@@ -26,8 +26,10 @@ feature 'Putty' do
       expect(current_path).to eq root_path
     end
     it 'can not be deleted' do
+      skip('TODO')
     end
     it 'can not be created' do
+      skip('TODO')
     end
   end
 end

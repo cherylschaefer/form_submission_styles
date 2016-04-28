@@ -35,8 +35,10 @@ feature 'Diamond' do
       expect(Diamond.count).to eq 0
     end
     it 'can not be edited' do
+      skip('TODO')
     end
     it 'can not be created if one already exists' do
+      skip('TODO')
     end
   end
 end
