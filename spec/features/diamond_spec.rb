@@ -23,7 +23,7 @@ feature 'Diamond' do
       expect(Diamond.count).to eq 1
       expect(Diamond.last.name).to eq "Sparkles"
       expect(current_path).to eq root_path
-      expect(Diamond.last.image).to be_present
+      expect(Diamond.last.image).not_to be_nil
     end
     it 'can be deleted' do
       diamond = FactoryGirl.create(:diamond, user: user)

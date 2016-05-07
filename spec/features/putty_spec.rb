@@ -24,6 +24,7 @@ feature 'Putty' do
       expect(Putty.count).to eq 1
       expect(Putty.last.name).to eq "Red Putty"
       expect(current_path).to eq root_path
+      expect(Putty.last.image).not_to be_nil
     end
     it 'can not be deleted' do
       skip('TODO')

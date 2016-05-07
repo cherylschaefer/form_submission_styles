@@ -23,6 +23,7 @@ feature 'Tribbles' do
       expect(Tribble.count).to eq 1
       expect(Tribble.last.name).to eq "Amanda"
       expect(current_path).to eq root_path
+      expect(Tribble.last.image).not_to be_nil
     end
     it 'can be created even if one already exists' do
       FactoryGirl.create(:tribble, user: user)
@@ -36,6 +37,7 @@ feature 'Tribbles' do
       expect(Tribble.count).to eq 2
       expect(Tribble.last.name).to eq "Amanda"
       expect(current_path).to eq root_path
+      expect(Tribble.last.image).not_to be_nil
     end
     it 'can be deleted' do
       tribble = FactoryGirl.create(:tribble, user: user)

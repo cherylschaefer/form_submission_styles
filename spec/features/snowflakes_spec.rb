@@ -23,6 +23,7 @@ feature 'Snowflakes' do
       expect(Snowflake.count).to eq 1
       expect(Snowflake.last.name).to eq "Fractalus"
       expect(current_path).to eq root_path
+      expect(Snowflake.last.image).not_to be_nil
     end
     it 'can not be created even if one of the same name already exists' do
       flake = FactoryGirl.create(:snowflake, user: user)
