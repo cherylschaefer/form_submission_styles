@@ -1,39 +1,41 @@
-<h1>Form Submission Samples In Rails</h1>
-<% if !user_signed_in? %>
-  <p><%= link_to "Sign up", new_user_registration_path, class: "btn btn-large btn-primary" %><p>
-  <p><%= link_to "Sign in", new_user_session_path %></p>
-<% else %>
-  <p>You are signed in.</p>
-  <p><%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
-  <br/>
-
-  <h2>Diamond</h2>
-  <% if @diamond.present? %>
-    <p><%= link_to "Delete #{@diamond.name}", diamond_path(@diamond), method: :delete %></p>
+<div class="container">
+  <h1>Form Submission Samples In Rails</h1>
+  <% if !user_signed_in? %>
+    <p><%= link_to "Sign up", new_user_registration_path, class: "btn btn-large btn-primary" %><p>
+    <p><%= link_to "Sign in", new_user_session_path %></p>
   <% else %>
-    <p><%= link_to "Create new diamond", new_diamond_path %></p>
-  <% end %>
-  <br/>
+    <p>You are signed in.</p>
+    <p><%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
+    <br/>
 
-  <h2>Putty</h2>
-  <p><%= link_to "Edit #{@putty.name}", edit_putty_path(@putty) %></p>
-  <br/>
-
-  <h2>Tribbles</h2>
-  <p><%= link_to "Create new tribble", new_tribble_path %></p>
-  <% if @tribbles.present? %>
-    <% @tribbles.each do |tribble| %>
-      <p><%= link_to "Edit #{tribble.name}", edit_tribble_path(tribble) %> - <%= link_to "Delete #{tribble.name}", tribble_path(tribble), method: :delete %></p>
+    <h2>Diamond</h2>
+    <% if @diamond.present? %>
+      <p><%= link_to "Delete #{@diamond.name}", diamond_path(@diamond), method: :delete, class: "btn btn-danger" %></p>
+    <% else %>
+      <p><%= link_to "Create new diamond", new_diamond_path, class: "btn btn-success" %></p>
     <% end %>
-  <% end %>
-  <br/>
+    <br/>
 
-  <h2>Snowflakes</h2>
-  <p><%= link_to "Create new snowflake", new_snowflake_path %></p>
-  <% if @snowflakes.present? %>
-    <% @snowflakes.each do |snowflake| %>
-      <p><%= link_to "Delete #{snowflake.name}", snowflake_path(snowflake), method: :delete %></p>
+    <h2>Putty</h2>
+    <p><%= link_to "Edit #{@putty.name}", edit_putty_path(@putty), class: "btn btn-primary" %></p>
+    <br/>
+
+    <h2>Tribbles</h2>
+    <p><%= link_to "Create new tribble", new_tribble_path, class: "btn btn-success" %></p>
+    <% if @tribbles.present? %>
+      <% @tribbles.each do |tribble| %>
+        <p><%= link_to "Edit #{tribble.name}", edit_tribble_path(tribble), class: "btn btn-primary" %> - <%= link_to "Delete #{tribble.name}", tribble_path(tribble), method: :delete, class: "btn btn-danger" %></p>
+      <% end %>
     <% end %>
+    <br/>
+
+    <h2>Snowflakes</h2>
+    <p><%= link_to "Create new snowflake", new_snowflake_path, class: "btn btn-success" %></p>
+    <% if @snowflakes.present? %>
+      <% @snowflakes.each do |snowflake| %>
+        <p><%= link_to "Delete #{snowflake.name}", snowflake_path(snowflake), method: :delete, class: "btn btn-danger" %></p>
+      <% end %>
+    <% end %>
+    <br/>
   <% end %>
-  <br/>
-<% end %>
+</div>
