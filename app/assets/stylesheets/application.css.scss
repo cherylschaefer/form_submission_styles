@@ -17,3 +17,8 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.icon {
+  max-width: 25%;
+  border: 2px solid #990099;
+}
