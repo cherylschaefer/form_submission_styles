@@ -7,35 +7,47 @@
     <p>You are signed in.</p>
     <p><%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
 
-    <h2>Diamond</h2>
-    <% if @diamond.present? %>
-      <p><%= image_tag @diamond.image, class: "icon" %>
-      <%= link_to "Delete #{@diamond.name}", diamond_path(@diamond), method: :delete, class: "btn btn-danger" %></p>
-    <% else %>
-      <p><%= link_to "Create new diamond", new_diamond_path, class: "btn btn-success" %></p>
-    <% end %>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Diamond</h2>
+        <% if @diamond.present? %>
+          <%= image_tag @diamond.image, class: "icon" %>
+          <%= link_to "Delete #{@diamond.name}", diamond_path(@diamond), method: :delete, class: "btn btn-danger" %>
+        <% else %>
+          <%= link_to "Create new diamond", new_diamond_path, class: "btn btn-success" %>
+        <% end %>
+      </div>
 
-    <h2>Putty</h2>
-    <p><%= image_tag @putty.image, class: "icon" %>
-    <%= link_to "Edit #{@putty.name}", edit_putty_path(@putty), class: "btn btn-primary" %></p>
+      <div class="col-md-6">
+        <h2>Putty</h2>
+        <%= image_tag @putty.image, class: "icon" %>
+        <%= link_to "Edit #{@putty.name}", edit_putty_path(@putty), class: "btn btn-primary" %>
+      </div>
+    </div>
 
-    <h2>Tribbles</h2>
-    <p><%= link_to "Create new tribble", new_tribble_path, class: "btn btn-success" %></p>
-    <% if @tribbles.present? %>
-      <% @tribbles.each do |tribble| %>
-        <p><%= image_tag tribble.image, class: "icon" %>
-        <%= link_to "Edit #{tribble.name}", edit_tribble_path(tribble), class: "btn btn-primary" %> - <%= link_to "Delete #{tribble.name}", tribble_path(tribble), method: :delete, class: "btn btn-danger" %></p>
-      <% end %>
-    <% end %>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Tribbles</h2>
+        <%= link_to "Create new tribble", new_tribble_path, class: "btn btn-success" %><br/>
+        <% if @tribbles.present? %>
+          <% @tribbles.each do |tribble| %>
+            <%= image_tag tribble.image, class: "icon" %>
+            <%= link_to "Edit #{tribble.name}", edit_tribble_path(tribble), class: "btn btn-primary" %> - <%= link_to "Delete #{tribble.name}", tribble_path(tribble), method: :delete, class: "btn btn-danger" %><br/>
+          <% end %>
+        <% end %>
+      </div>
 
-    <h2>Snowflakes</h2>
-    <p><%= link_to "Create new snowflake", new_snowflake_path, class: "btn btn-success" %></p>
-    <% if @snowflakes.present? %>
-      <% @snowflakes.each do |snowflake| %>
-        <p><%= image_tag snowflake.image, class: "icon" %>
-        <%= link_to "Delete #{snowflake.name}", snowflake_path(snowflake), method: :delete, class: "btn btn-danger" %></p>
-      <% end %>
-    <% end %>
+      <div class="col-md-6">
+        <h2>Snowflakes</h2>
+        <%= link_to "Create new snowflake", new_snowflake_path, class: "btn btn-success" %><br/>
+        <% if @snowflakes.present? %>
+          <% @snowflakes.each do |snowflake| %>
+            <%= image_tag snowflake.image, class: "icon" %>
+            <%= link_to "Delete #{snowflake.name}", snowflake_path(snowflake), method: :delete, class: "btn btn-danger" %><br/>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
   <% end %><!-- End user_signed_in -->
 </div>
